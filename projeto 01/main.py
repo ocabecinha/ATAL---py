@@ -30,3 +30,7 @@ def main():
     
     else: 
       return 'Opção inválida'
+
+# Chamada principal
+if __name__ == "__main__":
+    main()

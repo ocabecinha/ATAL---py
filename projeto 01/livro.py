@@ -36,6 +36,37 @@ class ListadeLivros:
     
 
     #bubble sort          
+  def sort_autor(self):
+      if not self.cabeca:
+          return 
+      # se a lista não tiver nada ele só retorna.
+      troca = True
+      # flag pra indicar troca de posições ou seja, se não houve trocas, a lista está ordenada.
+      # /inicialização da váriavel troca.
+      while troca:
+          troca = False
+          # definindo a troca como falsa até que se prove o contrario, o loop só continua enquanto troca for True.
+          atual = self.cabeca.lower()
+          while atual.proximo: 
+              if atual.proximo.autor < atual.autor: 
+                  # se o autor do proximo livro for menor que o atual (ordem alfabética[eu te amo piton])
+                  # troca de informações
+                  atual.titulo, atual.proximo.titulo = atual.proximo.titulo, atual.titulo
+                  atual.autor, atual.proximo.autor = atual.proximo.autor, atual.autor
+                  atual.ano_publicacao, atual.proximo.ano_publicacao = atual.proximo.ano_publicacao, atual.ano_publicacao
+                  troca = True
+                  # definindo a troca como verdadeira para continuar o processo se necessário.
+              atual = atual.proximo
+      
+    
+      atual = self.cabeca
+      while atual:
+          print("\n" + atual.autor)
+          atual = atual.proximo
+          # após toda a ordenação, um loop para printar todos os titulos.
+
+
+     #bubble sort          
   def sort_titulo(self):
       if not self.cabeca:
           return 
@@ -46,7 +77,7 @@ class ListadeLivros:
       while troca:
           troca = False
           # definindo a troca como falsa até que se prove o contrario, o loop só continua enquanto troca for True.
-          atual = self.cabeca
+          atual = self.cabeca.lower()
           while atual.proximo: 
               if atual.proximo.titulo < atual.titulo: 
                   # se o titulo do proximo livro for menor que o atual (ordem alfabética[eu te amo piton])
@@ -65,4 +96,4 @@ class ListadeLivros:
           atual = atual.proximo
           # após toda a ordenação, um loop para printar todos os titulos.
 
-      
+           

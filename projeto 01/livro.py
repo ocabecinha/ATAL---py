@@ -48,7 +48,7 @@ class ListadeLivros:
           # definindo a troca como falsa até que se prove o contrario, o loop só continua enquanto troca for True.
           atual = self.cabeca
           while atual.proximo: 
-              if atual.proximo.titulo < atual.titulo: 
+              if (atual.proximo.titulo.lower() < atual.titulo.lower()):
                   # se o titulo do proximo livro for menor que o atual (ordem alfabética[eu te amo piton])
                   # troca de informações
                   atual.titulo, atual.proximo.titulo = atual.proximo.titulo, atual.titulo
@@ -56,7 +56,9 @@ class ListadeLivros:
                   atual.ano_publicacao, atual.proximo.ano_publicacao = atual.proximo.ano_publicacao, atual.ano_publicacao
                   troca = True
                   # definindo a troca como verdadeira para continuar o processo se necessário.
+                  atual.proximo
               atual = atual.proximo
+
       
     
       atual = self.cabeca
@@ -65,4 +67,23 @@ class ListadeLivros:
           atual = atual.proximo
           # após toda a ordenação, um loop para printar todos os titulos.
 
-      
+  def ord_autor(self):
+      if not self.cabeca:
+          return
+
+      troca = True
+
+      while troca:
+          troca = False
+          atual = self.cabeca.lower()
+
+          while atual.proximo:
+              if (atual.proximo.autor < atual.autor):
+                  atual.titulo, atual.proximo.titulo = atual.proximo.titulo, atual.titulo
+                  atual.autor, atual.proximo.autor = atual.proximo.autor, atual.autor
+                  atual.ano_publicacao, atual.proximo.ano_publicacao = atual.proximo.ano_publicacao, atual.ano_publicacao
+                  troca = True
+
+              atual = atual.proximo
+
+          atual = self.cabeca

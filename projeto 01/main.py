@@ -9,7 +9,7 @@ def main():
     print("2 Listar livros")
     print("3 Ordernar livros por titulo")
     print("4 Sair")
-    r = input("Selecione oque você quer: ")
+    r = input("\nSelecione oque você quer: ")
     
     if r == '1':
       titulo = input("Digite o titulo do livro: ")
@@ -21,11 +21,11 @@ def main():
       lista.listar_livros()
       
     elif r == '3':
-      lista.sort_titulo()
       print('Livros ordenados por titulo')
-      
+      lista.sort_titulo()
+    
     elif r == '4':
-      print('Saindo')
+      print('Saindo...')
       break
     
     else: 

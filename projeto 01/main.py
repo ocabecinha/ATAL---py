@@ -8,8 +8,7 @@ def main():
     print("\n1 Adicionar livro")
     print("2 Listar livros")
     print("3 Ordernar livros por titulo")
-    print("4 ordenar livros por autor")
-    print("5 Sair")
+    print("4 Sair")
     r = input("\nSelecione oque você quer: ")
     
     if r == '1':
@@ -26,10 +25,6 @@ def main():
       lista.sort_titulo()
     
     elif r == '4':
-      print('Livros ordenados por autor')
-      lista.ord_autor()
-
-    elif r == '5':
       print('Saindo...')
       break
     

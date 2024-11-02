@@ -35,7 +35,6 @@ def main():
       print('Livros ordenados por ano de publicação')
       lista.ord_ano()
 
-  
     elif r =='6':
       titulo = input("Digite o titulo do livro que você quer encontrar: ")
       lista.buscar_por_titulo(titulo)

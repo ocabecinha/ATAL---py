@@ -16,7 +16,9 @@ Para ordenar os livros, utilizamos o Bubble Sort, um algoritmo simples que compa
 2. **Listar livros**: Exibe todos os livros armazenados na lista.
 3. **Ordenar livros por título**: Ordena a lista de livros em ordem alfabética com base nos títulos.
 4. **Ordenar livros por autor**: Ordena a lista de livros em ordem alfabética com base nos autores.
-5. **Sair**: Encerra o programa.
+5. **Ordernar livros por ano**: Ordena a lsita de livro em ordem de mais velho ao mais novo com base no ano de publicação.
+6. **Pesquisar livro por titulo**: Pesquisa o livro pelo titulo buscado.
+7. **Sair**: Encerra o programa.
 
 ### Classe Livro 📖
 

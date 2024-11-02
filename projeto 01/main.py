@@ -10,7 +10,8 @@ def main():
     print("3 Ordernar livros por titulo")
     print("4 Ordernar livros por autor")
     print("5 Ordernar livros por ano de publicação")
-    print("6 Sair")
+    print("6 Buscar livro por titulo")
+    print("7 Sair")
     r = input("\nSelecione oque você quer: ")
     
     if r == '1':
@@ -34,7 +35,12 @@ def main():
       print('Livros ordenados por ano de publicação')
       lista.ord_ano()
 
+  
     elif r =='6':
+      titulo = input("Digite o titulo do livro que você quer encontrar: ")
+      lista.buscar_por_titulo(titulo)
+    
+    elif r =='7':
       print('Saindo...')
       break
     

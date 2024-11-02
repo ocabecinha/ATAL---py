@@ -33,7 +33,15 @@ class ListadeLivros:
               print(f"\nTítulo: {atual.titulo}, Autor: {atual.autor}, Ano: {atual.ano_publicacao}"),
               atual = atual.proximo
               # começa do primeiro livro e vai printando enquanto houver livros todos, movendo sempre para o proximo.
-    
+              
+  def buscar_por_titulo(self, titulo):
+        atual = self.cabeca
+        while atual:
+         if atual.titulo == titulo:
+              print(f"\nLivro encontrado: Título: {atual.titulo}, Autor: {atual.autor}, Ano: {atual.ano_publicacao}")
+              return
+         atual = atual.proximo
+        print("\nLivro não encontrado.")
 
     #bubble sort
 

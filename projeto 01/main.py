@@ -5,7 +5,7 @@ import tkinter as tk
 
 def main():
   
-  lista = livro.ListadeLivros() # crio a variavel lista que vai receber os metodos adicionar, buscar, listar e ordenar
+  lista = livro.metodos() # crio a variavel lista que vai receber os metodos adicionar, buscar, listar e ordenar
 root = tk.Tk() #confesso que dei uma roubada no GPT pra fazer essa interface grafica, não ia perder meu tempo fazendo GUI
 root.title("Gerenciador de Livros")
 root.geometry("400x300")

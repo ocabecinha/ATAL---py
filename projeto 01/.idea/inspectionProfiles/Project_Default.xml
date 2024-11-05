@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="livro" />
+          <option value="operacoes" />
         </list>
       </option>
     </inspection_tool>

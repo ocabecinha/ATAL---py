@@ -12,10 +12,11 @@ class Livro:
         self.proximo = None
         # esse "self.proximo" é o nó da lista encadeada, ele nada mais é que o ponteiro indicando para o próximo livro que virá.
  
-class ListadeLivros: 
+class metodos():
   def __init__(self):
     self.cabeca = None
-    # o "self.cabeca" quer indicar o primeiro livro, ou seja, outro ponteiro, só que apontando pro inicio. 
+    # o "self.cabeca" quer indicar o primeiro livro, ou seja, outro ponteiro, só que apontando pro inicio.
+
   def adicionar_um_livro(self, titulo, autor, ano):
       novo_livro = Livro(titulo, autor, ano)  
       # cria um novo livro, e adiciona os atributos ao objeto.
@@ -32,10 +33,13 @@ class ListadeLivros:
             # define o próximo do ultimo livro, como o novo livro, adicionando a lista.
         
   def listar_livros(self):
+          livro_info = ""
           atual = self.cabeca
           while atual:
-              print(f"\nTítulo: {atual.titulo}, Autor: {atual.autor}, Ano: {atual.ano_publicacao}"),
+              livro_info += f"\nTítulo: {atual.titulo}, Autor: {atual.autor}, Ano: {atual.ano_publicacao}"
               atual = atual.proximo
+
+          return livro_info
               # começa do primeiro livro e vai printando enquanto houver livros todos, movendo sempre para o proximo.
     
 

@@ -4,8 +4,7 @@ from tkinter import simpledialog, messagebox
 
 
 
-
-lista = livro.ListadeLivros() #cria uma variel que vai chamar os metodos de livro
+lista = livro.metodos() #cria uma variel que vai chamar os metodos de livro
 def adicionarLivro(): #função criada para adicionar o titulo, autor e ano na interface
     def salvar_livro():
         titulo = entry_titulo.get()
@@ -36,14 +35,15 @@ def adicionarLivro(): #função criada para adicionar o titulo, autor e ano na i
     tk.Button(add_window, text="Salvar", command=salvar_livro, width=20, bg="#4CAF50", fg="white").pack(pady=10)
     tk.Button(add_window, text="Cancelar", command=add_window.destroy, width=20, bg="#ff6666", fg="white").pack(pady=5)
 def listarLivros(): #função criada para listar os livros que foram adicionado na lista
+
     list_window = tk.Toplevel()
     list_window.title("Lista de Livros")
     list_window.geometry("400x300")
 
-    lista = livro.ListadeLivros()
 
+    livros_info = lista.listar_livros()
     text_widget = tk.Text(list_window, wrap="word", width=50, height=15)
-    text_widget.insert("1.0", lista.listar_livros)  # Insere o texto no widget
+    text_widget.insert("1.0", livros_info )  # Insere o texto no widget
     text_widget.configure(state="disabled")  # Desabilita edição para o usuário
     text_widget.pack(padx=10, pady=10)
     btn_fechar = tk.Button(list_window, text="Fechar", command=list_window.destroy)

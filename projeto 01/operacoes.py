@@ -50,13 +50,15 @@ def listarLivros(): #função criada para listar os livros que foram adicionado 
     btn_fechar.pack(pady=5)
 
 
-def buscarLivroPorTitulo():  #função criada para buscar o livro na lista
+def buscarLivroPorAutor(self):  #função criada para buscar o livro na lista
     def procurar_livro():
-        titulo = entry_titulo.get() #recebe o input do usuario
-        if titulo:
-            livro = lista.buscarLivroPorTitulo(titulo) #passa o input do usuario como parametro da busca
+        autor = entry_autor.get() #recebe o input do usuario
+        if autor:
+            livro = lista.buscarLivroPorAutor(autor) #passa o input do usuario como parametro da busca
             if livro:
-                messagebox.showinfo("Livro Encontrado", f"Título: {livro.titulo}, Autor: {livro.autor}, Ano: {livro.ano_publicacao}")
+                livros_sugeridos = self.trie.search(autor)
+                for livro in livros_sugeridos:
+                    messagebox.showinfo("Livro Encontrado", f"Título: {livro.titulo}, Autor: {livro.autor}, Ano: {livro.ano_publicacao}")
             else:
                 messagebox.showinfo("Não Encontrado", "Livro não encontrado.")
             search_window.destroy()
@@ -66,8 +68,8 @@ def buscarLivroPorTitulo():  #função criada para buscar o livro na lista
     search_window.geometry("300x150")
 
     tk.Label(search_window, text="Título:").pack(pady=5)
-    entry_titulo = tk.Entry(search_window, width=30)
-    entry_titulo.pack(pady=5)
+    entry_autor = tk.Entry(search_window, width=30)
+    entry_autor.pack(pady=5)
 
     tk.Button(search_window, text="Buscar", command=procurar_livro, width=20, bg="#4CAF50", fg="white").pack(pady=10)
     tk.Button(search_window, text="Cancelar", command=search_window.destroy, width=20, bg="#ff6666", fg="white").pack(pady=5)

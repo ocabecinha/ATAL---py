@@ -161,7 +161,7 @@ class metodos():
           atual = atual.proximo
 
 
-  def buscarLivroPorTitulo(self, autor):
+  def buscarLivroPorAutor(self, autor):
     livros_sugeridos = self.trie.search(autor)
     atual = self.cabeca
     while atual:

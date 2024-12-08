@@ -1,6 +1,32 @@
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_word = False
+        self.books = []  
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, author, book):
+        node = self.root
+        for char in author:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
+        node.books.append(book)
+
+    def search(self, prefix):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return []
+            node = node.children[char]
+        return node.books
 # # Vou destrinchar o código para explicar, fica melhor para estudarmos.
 # Nessa primeira class estamos criando o obejto que vai ser passado na nossa lista encadeada que é uma pilha,
 # ou seja, o "_init_" é o nosso construtor que vai passar todos os atributos pra dentro do objeto, coisa básica.
@@ -15,6 +41,7 @@ class Livro:
 class metodos():
   def __init__(self):
     self.cabeca = None
+    self.trie = Trie()
     # o "self.cabeca" quer indicar o primeiro livro, ou seja, outro ponteiro, só que apontando pro inicio.
 
   def adicionar_um_livro(self, titulo, autor, ano):
@@ -22,6 +49,7 @@ class metodos():
       # cria um novo livro, e adiciona os atributos ao objeto.
       if not self.cabeca:
           self.cabeca = novo_livro
+          self.trie.insert(autor, novo_livro)
           messagebox.showinfo("Sucesso", f"Livro '{titulo}' adicionado com sucesso.")
       else:
           atual = self.cabeca
@@ -133,21 +161,17 @@ class metodos():
           atual = atual.proximo
 
 
-  def buscarLivroPorTitulo(self, titulo):
+  def buscarLivroPorTitulo(self, autor):
+    livros_sugeridos = self.trie.search(autor)
     atual = self.cabeca
     while atual:
-        if atual.titulo.lower() == titulo.lower():  # Comparação insensível a maiúsculas
+        if atual.autor.lower() == autor.lower():  # Comparação insensível a maiúsculas
+            for livro in livros_sugeridos:
+                print(f"Título: {livro.titulo}, Autor: {livro.autor}, Ano: {livro.ano_publicacao}")
             return atual
         atual = atual.proximo
     return None
 
-    lista = self.listar_livros()
-    tituloBusca = input('Digite o nome do titulo: ')
-    lista.buscarLivroPorTitulo(tituloBusca)
-    livro_encontrado = lista.buscarLivroPorTitulo(tituloBusca)
-    if livro_encontrado:
-        print(f"Livro encontrado: {livro_encontrado.titulo}, {livro_encontrado.autor}, {livro_encontrado.ano_publicacao}")
-    else:
-        print("Livro não encontrado.")
+  
 
 ###########
